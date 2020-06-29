@@ -34,3 +34,10 @@ bin/
 .html
 .xml
 **/dynamicConfig.properties
+/.idea/compiler.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/rest-assured-api-testing.iml
+/.idea/vcs.xml
+/.idea/.gitignore
