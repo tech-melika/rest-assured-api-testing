@@ -13,6 +13,9 @@ import utils.EndPoints;
 
 import static io.restassured.RestAssured.given;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestFlow {
 
   private static String token = "";
@@ -47,9 +50,23 @@ public class TestFlow {
 
   @Test
   public void getBookingsIds() {
-    Response response = given().spec(requestSpec).when().get(EndPoints.GET_BOOKING_IDS)
+    Response response = given().spec(requestSpec).when().get(EndPoints.BOOKING)
         .then().spec(responseSpec).statusCode(200).log().body().extract().response();
   }
 
-
+  @Test
+  public void createBooking() {
+    Map<String, String> bodyMap = new HashMap<>();
+    bodyMap.put("firstname", "Jim");
+    Response response = given().spec(requestSpec)
+        .when()
+        .post(EndPoints.BOOKING)
+        .then()
+        .spec(responseSpec)
+        .statusCode(200)
+        .log()
+        .body()
+        .extract()
+        .response();
+  }
 }
